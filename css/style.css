@@ -9,6 +9,18 @@
     to {opacity: 0;}
   }
 
+a{
+
+    color: white;
+ 
+}
+
+a:hover{
+
+    color: white;
+ 
+}
+
 .hide{
     visibility: hidden;
 }
@@ -23,11 +35,26 @@
     animation-duration: 0.5s;
 }
 
+[data-task="1"]{
+    height: 80vh;
+    background-image: url(../img/balloon.jpg);
+    background-size: cover;
+    
+  
+}
+
+.btnG{
+  margin: 8px 5px; 
+  
+}
 
 [data-form="1"]{
  
     width: 50%;
     margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
     background-color:#f7f7f7;
     padding: 1em;
     margin-top: 1em;
@@ -43,4 +70,49 @@
     text-transform: uppercase;
     
 }
+
+.sideMenu{
+    background-color: #dfdddd;
+    text-align: center;
+    line-height: 50px;
+}
+.relogio{
+    background-color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top:10px;
+    font-family:Helvetica, sans-serif;
+    border-radius: 10px;
+}
+
+.task{
+    margin-top: 5px;
+    padding-top: 5px;
+    background-color: whitesmoke;
+    font-weight: bold;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    
+ 
+}
+
+.task li{
+    margin-top: 0.7em;;
+    list-style: none;
+    display: inline-block;
+    
+}
+
+
+footer{
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    height: 5em;
+    padding-top: 1em;
+}
+
+
+
 
