@@ -9,6 +9,7 @@
     to {opacity: 0;}
   }
 
+
 a{
 
     color: white;
@@ -36,11 +37,22 @@ a:hover{
 }
 
 [data-task="1"]{
-    height: 80vh;
+    height: 79.5vh;
     background-image: url(../img/balloon.jpg);
     background-size: cover;
+    overflow-y: auto;
     
   
+}
+.id{
+    color:white;
+    font-weight: bold;
+    background-color:#226eb9;
+    padding: 5px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    
 }
 
 .btnG{
@@ -48,19 +60,21 @@ a:hover{
   
 }
 
+
+
 [data-form="1"]{
- 
-    width: 50%;
+    z-index: 1;
+    width: 70%;
     margin: 0 auto;
     position: absolute;
     left: 0;
     right: 0;
     background-color:#f7f7f7;
+    border: solid 2px #2020204f;
     padding: 1em;
     margin-top: 1em;
     border-radius: 20px;
-
-   
+ 
 
 }
 
@@ -114,5 +128,8 @@ footer{
 }
 
 
-
+.msg{
+    width: 100%;
+    padding:1px;
+}
 

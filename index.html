@@ -6,23 +6,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/703a4c0f87.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/tasks-solid.svg" />
     <title>To Do List</title>
 </head>
 <body>
+  
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#"><i class="fas fa-clipboard-check"></i> To Do List</a>
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <a  data-form="0" class="nav-link" href="#"><i class="fas fa-plus"></i> Nova tarefa</a>
+                  <a  data-form="0" class="nav-link" href="#"><button class="btn btn-primary"> 
+                    <i class="fas fa-plus"></i> Nova tarefa
+                  </button></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"> Todas as tarefas </a>
+                  <a class="nav-link" href="#"> <button class="btn btn-danger clearS">Reiniciar Lista</button> </a>
                 </li>
             </ul>    
         
         </nav>
+           
     </header>
     <main> 
         <div class="container-fluid">
@@ -42,44 +47,47 @@
                         Tarefas Concluídas
                         <p class="taskProgress">0%</p>
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" 
+                            style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-                    <div class="msg alert">
-
-                    </div>
+                    
+                   
                 </div>
+                
                 <div class="col-md-10" data-task="1">
-                  
-                    <!--Modal -->
-                    <div data-form="1" class="hide">
-                        <button type="button" class="close" data-dismiss="modal" name="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="modal-t">
-                            <h4> Nova Tarefa</h4>
-                        </div>
-    
-                        <form class="formTask">
-                            <div class="form-row">
-                              <div class="col">
-                                <input type="text" class="form-control" placeholder="Tarefa" id="tarefa">
-                                <label for="obs">Data de entrega</label>
-                                <input type="datetime-local" class="form-control" id="data" placeholder="Last name">
-                                <label for="obs">Descrição</label>
-                                <textarea class="form-control"  id="obs" rows="3" maxlength="40"></textarea>
-
-                                <div class="modal-footer">
-                                     <button class="btn btn-primary mt-3" id="include">Incluir</button>
-                                     <button type="reset" class="btn btn-warning mt-3" id="reset">limpar</button>
-                                </div>
-                         
-                              </div>
+                         <!--Modal -->
+                         <div data-form="1" class="hide">
+                            <button type="button" class="close" data-dismiss="modal" name="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="modal-t">
+                                <h4> Nova Tarefa</h4>
                             </div>
-                        </form>      
-                    </div>
-                 
+        
+                            <form class="formTask" >
+                                <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Tarefa" id="tarefa">
+                                    <label for="obs">Data de entrega</label>
+                                    <input type="datetime-local" class="form-control" id="data" placeholder="Last name">
+                                    <label for="obs">Descrição</label>
+                                    <textarea class="form-control"  id="obs" rows="3" maxlength="30"></textarea>
+        
+                                    <div class="modal-footer">
+                                        <div class="msg alert">
+        
+                                        </div>
+                                        <button class="btn btn-primary mt-3" id="include">Incluir</button>
+                                        <button type="reset" class="btn btn-warning mt-3" id="reset">limpar</button>
+                                    </div>
+                            
+                                </div>
+                                </div>
+                            </form>      
+                        </div>
                 </div>
+
             </div>
           
         </div>
