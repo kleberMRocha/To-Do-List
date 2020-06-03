@@ -1,4 +1,5 @@
 class Display {
+
     constructor(displayTime,displayTask,sideMenu,taskCard,progress,progressPercent){
         this.displayTime = displayTime;
         this.dataTime = new Date(); 
@@ -12,7 +13,6 @@ class Display {
         this.totalTask(taskCard,progress,progressPercent);
               
     }
-
 
     getDataTIme(){
 
@@ -29,16 +29,16 @@ class Display {
        let time = this.dataTime.toLocaleTimeString('pt-BR');
        this.displayTime.innerHTML = `<p>${data}<p/><p>${time}<p/>`;
     }
-    
-    showAllTasks(){
-        
-            //get all tasks on DB and append to the display
+
+    //get all tasks on DB and append to the display
+    showAllTasks(){  
+           
             setInterval(()=>{
                 cursor(this.displayTask);
-            },1000);
-       
+            },1000); 
     }
     
+    //update progress - check completed tasks
     totalTask(target01,target02,target03){
         
         setInterval(()=>{
@@ -61,9 +61,30 @@ class Display {
 
         },500);
 
-       
-
     }
+
+    taskDone(value){
+        if([...value.classList].includes('btn-secondary')){
+            value.classList.remove('btn-secondary');
+            value.classList.add('btn-success');
+            update(parseInt(value.parentNode.children[2].innerHTML))
+            
+        }else{
+            value.classList.add('btn-secondary');
+            value.classList.remove('btn-success');
+            update(parseInt(value.parentNode.children[2].innerHTML))
+        }
+      
+        
+    };
+
+    deleteTask(value){
+    
+        ids = ids.filter(filter => filter != value.parentNode.children[2].innerHTML);
+        deleteR(parseInt(value.parentNode.children[2].innerHTML));
+        value.parentNode.children[0].classList.remove('btn-success');
+        value.parentNode.parentNode.parentNode.style ="display:none"
+    };
 
 
 }

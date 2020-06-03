@@ -61,8 +61,8 @@ let cursor = (target) => {
                         </ul>
                         <div class="btn-toolbar ml-auto " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <button type="button" onclick="taskDone(this)"class="btn btn-success btnG status"><i class="fas fa-check"></i></button>
-                            <button type="button" onclick="deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
+                            <button type="button" onclick="display.taskDone(this)"class="btn btn-success btnG status"><i class="fas fa-check"></i></button>
+                            <button type="button" onclick="display.deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
                             <div style="display:none;">${cursor.value.id}</di>
                         </div>
                 </div>
@@ -80,8 +80,8 @@ let cursor = (target) => {
                         </ul>
                         <div class="btn-toolbar ml-auto " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <button type="button" onclick="taskDone(this)"class="btn btn-secondary btnG status"><i class="fas fa-check"></i></button>
-                            <button type="button" onclick="deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
+                            <button type="button" onclick="display.taskDone(this)"class="btn btn-secondary btnG status"><i class="fas fa-check"></i></button>
+                            <button type="button" onclick="display.deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
                             <div style="display:none;">${cursor.value.id}</di>
                         </div>
                 </div>

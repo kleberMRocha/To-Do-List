@@ -1,8 +1,8 @@
 class Modal {
-    constructor(newBtn,ModalBody,btnClose,btnInclude,btnReset,formTask,msgArea,clearBtn){
+    constructor(newBtn,modalBody,btnClose,btnInclude,btnReset,formTask,msgArea,clearBtn){
         
         this.newbtn = newBtn;
-        this.body = ModalBody;
+        this.body = modalBody;
         this.btnClose = btnClose;
         this.btnInclude = btnInclude;
         this.btnReset = btnReset;
@@ -17,7 +17,7 @@ class Modal {
        this.closeModal();
        this.openModal();
        this.addTask();
-       this.clearSotre();
+       this.clearStore();
      
     }
 
@@ -54,7 +54,7 @@ class Modal {
 
     }
 
-    clearSotre(){
+    clearStore(){
        this.clearStoreBtn.addEventListener("click",event =>{
             clearStore();
        });
