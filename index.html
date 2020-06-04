@@ -70,7 +70,7 @@
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Tarefa" id="tarefa">
                                     <label for="obs">Data de entrega</label>
-                                    <input type="datetime-local" class="form-control" id="data" placeholder="Data de entrega">
+                                    <input type="date" class="form-control" id="data" placeholder="Data de entrega">
                                     <label for="obs">Descrição</label>
                                     <textarea class="form-control"  id="obs" rows="3" maxlength="30"></textarea>
         
@@ -78,6 +78,8 @@
                                         <div class="msg alert">
         
                                         </div>
+
+                                        
                                         <button type="reset" class="btn btn-warning mt-3" style="display:none" id="edit">Editar</button>
                                         <button class="btn btn-primary mt-3" id="include">Incluir</button>
                                         <button type="reset" class="btn btn-secondary mt-3" id="reset">limpar</button>
@@ -109,3 +111,9 @@
     <script src="./js/controller.js"></script>
 </body>
 </html>
+
+<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+<script>
+    webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+</script>
