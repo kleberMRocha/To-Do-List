@@ -54,7 +54,7 @@ let cursor = (target) => {
                         <ul>
                             <li class="id">ID:#${cursor.value.id} </li>
                             <li>${cursor.value.task}</li>
-                            <li> ${new Date(cursor.value.data).toLocaleDateString('pt-BR')}
+                            <li> ${new Date(cursor.value.data).toLocaleDateString('pt-BR',{timeZone: 'UTC'})}
                             </li>
                             <li>${cursor.value.obs}</li>
                         </ul>
@@ -72,7 +72,7 @@ let cursor = (target) => {
                         <ul>
                             <li class="id">ID:#${cursor.value.id} </li>
                             <li>${cursor.value.task}</li>
-                            <li> ${new Date(cursor.value.data).toLocaleDateString('pt-BR')} 
+                            <li> ${new Date(cursor.value.data).toLocaleDateString('pt-BR',{timeZone: 'UTC'})} 
                             </li>
                             <li>${cursor.value.obs}</li>
                         </ul>

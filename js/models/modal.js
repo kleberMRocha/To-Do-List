@@ -27,7 +27,7 @@ class Modal {
         let task = { 
             "task" : this.formTask.tarefa.value,
             "data" : this.formTask.data.value,
-            "obs" : this.formTask.obs.value,
+            "obs" :  this.formTask.obs.value,
             "status": "p"
         }
     

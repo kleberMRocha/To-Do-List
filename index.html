@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+  <!-- cdn for modernizr, if you haven't included it already -->
+  <script src="./js/modernizr/modernizr-custom.js"></script>
+  <!-- polyfiller file to detect and load polyfills -->
+ <script src="./js/polyfiller/polyfiller.js"></script>
+  <script>
+  webshims.setOptions('waitReady', false);
+  webshims.setOptions('forms-ext', {types: 'date'});
+  webshims.polyfill('forms forms-ext');
+  </script>
+
 <html lang="Pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -104,16 +114,13 @@
        
 
     </footer>
+   
     <script src="js/IndexedDB/IndexedDB.js"></script>
     <script src="js/models/modal.js"></script>
     <script src="./js/models/display.js"></script>
     <script src="./js/models/task.js"></script>
     <script src="./js/controller.js"></script>
+   
 </body>
 </html>
 
-<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
-<script>
-    webshims.setOptions('forms-ext', {types: 'date'});
-webshims.polyfill('forms forms-ext');
-</script>
