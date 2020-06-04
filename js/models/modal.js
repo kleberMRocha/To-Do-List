@@ -61,7 +61,7 @@ class Modal {
 
     clearStore(){
        this.clearStoreBtn.addEventListener("click",event =>{
-            clearStore();
+           if(confirm('Reiniciar a Lista?')) clearStore();
        });
     }
 
