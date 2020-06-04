@@ -21,7 +21,6 @@ class Modal {
      
     }
 
-
     //get informations from form
     get getTask(){
 
@@ -41,6 +40,12 @@ class Modal {
         this.btnInclude.addEventListener("click", event =>{
             event.preventDefault();
             
+            if(new Date(this.formTask.data.value) == "Invalid Date"){
+                this.msrgDisplay(`<div class="alert-danger ">Por favor, informe uma
+                data valida</div>`,this.msgArea);
+                return;
+            }
+
             if(this.formTask.tarefa.value == "" || this.formTask.data.value   == ""){ 
                 this.msrgDisplay(`<div class="alert-danger ">Por favor, informe a
                  data de entrega e o nome da tarefa</div>`,this.msgArea);

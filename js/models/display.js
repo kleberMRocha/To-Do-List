@@ -63,28 +63,5 @@ class Display {
 
     }
 
-    taskDone(value){
-        if([...value.classList].includes('btn-secondary')){
-            value.classList.remove('btn-secondary');
-            value.classList.add('btn-success');
-            update(parseInt(value.parentNode.children[2].innerHTML))
-            
-        }else{
-            value.classList.add('btn-secondary');
-            value.classList.remove('btn-success');
-            update(parseInt(value.parentNode.children[2].innerHTML))
-        }
-      
-        
-    };
-
-    deleteTask(value){
-    
-        ids = ids.filter(filter => filter != value.parentNode.children[2].innerHTML);
-        deleteR(parseInt(value.parentNode.children[2].innerHTML));
-        value.parentNode.children[0].classList.remove('btn-success');
-        value.parentNode.parentNode.parentNode.style ="display:none"
-    };
-
 
 }

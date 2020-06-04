@@ -24,3 +24,5 @@ MainModal[2].include,MainModal[2].reset,formTask,msgArea,clear);
 
 let display = new Display(displaytime,taskList,sideMenu,taskCard,progress,progressP);
 
+let newTask = new Task();
+

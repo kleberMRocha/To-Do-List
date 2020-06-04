@@ -61,9 +61,9 @@ let cursor = (target) => {
                         </ul>
                         <div class="btn-toolbar ml-auto " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <button type="button" onclick="display.taskDone(this)"class="btn btn-success btnG status"><i class="fas fa-check"></i></button>
-                            <button type="button" onclick="display.deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
-                            <div style="display:none;">${cursor.value.id}</di>
+                            <button type="button" onclick="newTask.taskDone(${cursor.value.id},this)"class="btn btn-success btnG status"><i class="fas fa-check"></i></button>
+                            <button type="button" onclick="newTask.editTask(${cursor.value.id},this)"class="btn btn-warning btnG"><i class="fas fa-edit"></i></button>
+                            <button type="button" onclick="newTask.deleteTask(${cursor.value.id},this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
                         </div>
                 </div>
             `
@@ -80,9 +80,9 @@ let cursor = (target) => {
                         </ul>
                         <div class="btn-toolbar ml-auto " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <button type="button" onclick="display.taskDone(this)"class="btn btn-secondary btnG status"><i class="fas fa-check"></i></button>
-                            <button type="button" onclick="display.deleteTask(this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
-                            <div style="display:none;">${cursor.value.id}</di>
+                            <button type="button" onclick="newTask.taskDone(${cursor.value.id},this)"class="btn btn-secondary btnG status"><i class="fas fa-check"></i></button>
+                            <button type="button" onclick="newTask.editTask(${cursor.value.id},this)"class="btn btn-warning btnG"><i class="fas fa-edit"></i></button>
+                            <button type="button" onclick="newTask.deleteTask(${cursor.value.id},this)"class="btn btn-danger btnG"><i class="fas fa-times"></i></button>
                         </div>
                 </div>
              `
@@ -105,7 +105,7 @@ let cursor = (target) => {
 
 };
 
-/*Update*/
+/*Update Status*/
 let update = (id) =>{ 
 
     let transaction = db.transaction(["toDotask"],"readwrite");
@@ -130,6 +130,65 @@ let update = (id) =>{
     };
 
 };
+
+/*Update Task*/
+let updateT = (id) =>{ 
+
+    let transaction = db.transaction(["toDotask"],"readwrite");
+    let store = transaction.objectStore("toDotask");
+    var request = store.get(id);
+    request.onerror = (event) =>{ console.log('Erro');};
+    request.onsuccess = (event) => {
+        
+        let data = request.result;
+        
+        console.log(data);
+
+        modalTask.fadein();
+
+        modalTask.formTask.tarefa.value = data.task;
+        modalTask.formTask.data.value = data.data;
+        modalTask.formTask.obs.value = data.obs;
+        modalTask.formTask.edit.style = "";
+
+        modalTask.formTask.edit.addEventListener("click",event =>{
+            event.preventDefault();
+            if(new Date(modalTask.formTask.data.value) == "Invalid Date"){
+                modalTask.msrgDisplay(`<div class="alert-danger ">Por favor, informe uma
+                data valida</div>`,modalTask.msgArea);
+                return;
+            }
+            let transaction = db.transaction(["toDotask"],"readwrite");
+            let store = transaction.objectStore("toDotask");
+
+            request.onerror = (event) =>{ console.log('Erro');};
+            request.onsuccess = (event) => {console.log('sucesso');}
+
+            data.task = modalTask.formTask.tarefa.value;
+            data.data = modalTask.formTask.data.value;
+            data.obs =  modalTask.formTask.obs.value;
+
+            if(confirm('alterar os dados?')){
+
+                let updateRequest = store.put(data);
+                updateRequest.onerror = (event) =>{
+                    console.log(event);
+                };
+                updateRequest.onsuccess = (event) =>{
+                    console.log('seucesso');
+                    modalTask.formTask.edit.style = "display:none";
+                    location.reload(true);
+                   };
+        
+            }
+         
+        });
+       
+       
+    };
+
+};
+
 
 /*delete*/
 let deleteR = (id) =>{ 
