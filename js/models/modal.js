@@ -69,6 +69,7 @@ class Modal {
         this.newbtn.addEventListener("click",event =>{
             this.fadein();
             this.formTask.edit.style = "display:none";
+            this.formTask.include.style = "";
         });
 
     }

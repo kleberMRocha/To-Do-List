@@ -148,6 +148,7 @@ let updateT = (id) =>{
         modalTask.formTask.data.value = data.data;
         modalTask.formTask.obs.value = data.obs;
         modalTask.formTask.edit.style = "";
+        modalTask.formTask.include.style = "display:none";
 
         modalTask.formTask.edit.addEventListener("click",event =>{
             event.preventDefault();
@@ -156,6 +157,7 @@ let updateT = (id) =>{
                 data valida</div>`,modalTask.msgArea);
                 return;
             }
+
             let transaction = db.transaction(["toDotask"],"readwrite");
             let store = transaction.objectStore("toDotask");
 
@@ -166,19 +168,23 @@ let updateT = (id) =>{
             data.data = modalTask.formTask.data.value;
             data.obs =  modalTask.formTask.obs.value;
 
-            if(confirm('alterar os dados?')){
-
                 let updateRequest = store.put(data);
                 updateRequest.onerror = (event) =>{
                     console.log(event);
                 };
                 updateRequest.onsuccess = (event) =>{
-                    console.log('seucesso');
-                    modalTask.formTask.edit.style = "display:none";
-                    location.reload(true);
-                   };
+                    modalTask.msrgDisplay(`<div class="alert-primary">Dados Alterados</div>`,modalTask.msgArea);
+                    setTimeout(()=>{
+                        modalTask.formTask.edit.style = "display:none";
+                        modalTask.formTask.include.style = "";
+                        window.location.reload()
+                    },1500)
+                };
+            
+               
+               
         
-            }
+           
          
         });
        
